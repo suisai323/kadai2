@@ -35,7 +35,8 @@ package com.toy.anagrams.lib;
  * Implementation of the logic for the Anagram Game application.
  */
 final class StaticWordLibrary extends WordLibrary {
-
+	
+	int n=3;
     private static final String[] WORD_LIST = {
         "abstraction",
         "ambiguous",
@@ -134,7 +135,7 @@ final class StaticWordLibrary extends WordLibrary {
     };
     */
     private String shuffle(String array[], int size){
-    	for(int i = 0; i < size; i++){
+    	for(int i = 0; i < n && i<size; i++){
     		int j = (int)(Math.random()*size);
     		String t = array[i];
     		array[i] = array[j];
@@ -146,7 +147,10 @@ final class StaticWordLibrary extends WordLibrary {
     	}
     	return a;
     }
-    
+    public int setShuffleN(int a){
+    	n=a;
+    	return n;
+    }
     final static WordLibrary DEFAULT = new StaticWordLibrary();
 
     /**

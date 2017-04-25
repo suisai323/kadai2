@@ -217,6 +217,11 @@ public class Anagrams extends JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        selectLevel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chooseLevel(evt);
+            }
+        });
         mainPanel.add(selectLevel, gridBagConstraints);
 
         getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
@@ -264,6 +269,16 @@ public class Anagrams extends JFrame {
         guessedWord.requestFocusInWindow();
     }//GEN-LAST:event_nextTrialActionPerformed
 
+    private void chooseLevel(java.awt.event.ActionEvent evt){
+    	if (selectLevel.getSelectedIndex() == 0) {
+    		wordLibrary.setShuffleN(3);
+    	}else if (selectLevel.getSelectedIndex() == 1) {
+    		wordLibrary.setShuffleN(5);
+    	}else if (selectLevel.getSelectedIndex() == 2) {
+    		wordLibrary.setShuffleN(10);
+    	}
+    	
+    }
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
