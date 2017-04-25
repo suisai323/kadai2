@@ -277,7 +277,6 @@ public class Anagrams extends JFrame {
     	}else if (selectLevel.getSelectedIndex() == 2) {
     		wordLibrary.setShuffleN(10);
     	}
-    	
     }
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
         System.exit(0);
