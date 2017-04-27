@@ -41,6 +41,8 @@ public abstract class WordLibrary {
     protected WordLibrary() {
     }
     
+    public abstract int setShuffleN(int n);
+    
     /** Getter for the default implementation of the WordLibrary.
      * @return some default implementation of WordLibrary
      */

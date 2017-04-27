@@ -35,7 +35,8 @@ package com.toy.anagrams.lib;
  * Implementation of the logic for the Anagram Game application.
  */
 final class StaticWordLibrary extends WordLibrary {
-
+	
+	int n=3;
     private static final String[] WORD_LIST = {
         "abstraction",
         "ambiguous",
@@ -50,6 +51,7 @@ final class StaticWordLibrary extends WordLibrary {
         "dependency",
         "disambiguate",
         "dynamic",
+        "education",
         "encapsulation",
         "equivalent",
         "expression",
@@ -83,7 +85,7 @@ final class StaticWordLibrary extends WordLibrary {
         "unsigned",
         "traditional"};
 
-    private static final String[] SCRAMBLED_WORD_LIST = {
+    /*private static final String[] SCRAMBLED_WORD_LIST = {
         "batsartcoin",
         "maibuguos",
         "ratimhteci",
@@ -97,6 +99,7 @@ final class StaticWordLibrary extends WordLibrary {
         "edepdnneyc",
         "idasbmgiauet",
         "ydanicm",
+        "dceiontau",
         "neacsplutaoni",
         "qeiuaveltn",
         "xerpseisno",
@@ -130,7 +133,24 @@ final class StaticWordLibrary extends WordLibrary {
         "nuisngde",
         "rtdatioialn"
     };
-    
+    */
+    private String shuffle(String array[], int size){
+    	for(int i = 0; i < n && i<size; i++){
+    		int j = (int)(Math.random()*size);
+    		String t = array[i];
+    		array[i] = array[j];
+    		array[j] =  t;
+    	}
+    	String a=array[0];
+    	for(int i=1; i<size; i++){
+    		a+=array[i];
+    	}
+    	return a;
+    }
+    public int setShuffleN(int a){
+    	n=a;
+    	return n;
+    }
     final static WordLibrary DEFAULT = new StaticWordLibrary();
 
     /**
@@ -154,7 +174,7 @@ final class StaticWordLibrary extends WordLibrary {
      * @return word at that index in its scrambled form
      */
     public String getScrambledWord(int idx) {
-        return SCRAMBLED_WORD_LIST[idx];
+        return shuffle(getWord(idx).split(""), getWord(idx).length());//SCRAMBLED_WORD_LIST[idx];
     }
 
     /**
